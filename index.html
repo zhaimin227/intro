@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>INTRO</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="他认为,用太热用太热,ytyr">
+	<meta name="description" content="用太热用太热">
+	<script type="text/javascript" src="http://www2.res.meizu.com/zh_cn/bower_components/jquery/dist/jquery.min.js"></script>
+<style>
+@font-face{font-family:SYHT;src:url(http://www2.res.meizu.com/zh_cn/fonts/SHSCN-ELight.eot?v=150608);src:local('☺'),url(http://www2.res.meizu.com/zh_cn/fonts/SHSCN-ELight.woff?v=150608) format('woff'),url(http://www2.res.meizu.com/zh_cn/fonts/SHSCN-ELight.ttf?v=150608) format('truetype'),url(http://www2.res.meizu.com/zh_cn/fonts/SHSCN-ELight.svg?v=150608) format('svg');font-weight:400;font-style:normal}
+@font-face{font-family:FLEXO;src:url(http://www2.res.meizu.com/zh_cn/fonts/Durotype_Flexo_Thin.eot?v=150608);src:local('☺'),url(http://www2.res.meizu.com/zh_cn/fonts/Durotype_Flexo_Thin.woff?v=150608) format('woff'),url(http://www2.res.meizu.com/zh_cn/fonts/Durotype_Flexo_Thin.ttf?v=150608) format('truetype'),url(http://www2.res.meizu.com/zh_cn/fonts/Durotype_Flexo_Thin.svg?v=150608) format('svg'),url(http://www2.res.meizu.com/zh_cn/fonts/Durotype_Flexo_Thin.otf?v=150608) format('otf');font-weight:400;font-style:normal}
+@font-face{font-family:FZYouHJW;src:url(http://www2.res.meizu.com/zh_cn/fonts/FZYouHJW_Xi.eot?v=150608);src:local('☺'),url(http://www2.res.meizu.com/zh_cn/fonts/FZYouHJW_Xi.woff?v=150608) format('woff'),url(http://www2.res.meizu.com/zh_cn/fonts/FZYouHJW_Xi.ttf?v=150608) format('truetype'),url(http://www2.res.meizu.com/zh_cn/fonts/FZYouHJW_Xi.otf?v=150608) format('otf');font-weight:400;font-style:normal}
+*{margin:0;padding:0;font-family:'microsoft yahei',arial,sans-serif}
+html {width:100%;height:100%}
+body {position:relative;width:100%;height:100%;overflow:hidden;color:#111;background:url(http://ww4.sinaimg.cn/large/6c8c820dgw1ezaizhh3boj21hc0xcjwh.jpg) center center no-repeat;}
+a {outline:0;text-decoration:none}
+h1 {font-family:'Microsoft JhengHei', 'Microsoft YaHei', 'STHeiti SC', 'SimHei';font-size:40px; color:#2faab9}
+h5 {font-size:14px;color:#aaa;font-weight:normal;margin:10px auto 20px auto;}
+
+.section {position:absolute;width:100%;height:100%;top:0;left:0;overflow:hidden;
+    opacity: 0;
+	z-index: 1;
+    transition: all 0.5s ease;
+	transform: scale(1);
+    transition-property: all;
+}
+
+.slidebar { display:block; position:absolute; top:50%; right:0; margin-top:-60px; overflow:hidden; z-index:20 }
+.slidebar li {display:block;width:80px;height:30px;position:relative;padding:0;margin:0;overflow:hidden;}
+.slidebar li a { display:block;width:10px;height:10px;border-radius:5px;margin:10px 0 0 35px; background:#aaa; transition: all 0.25s linear 0.1s; text-decoration:none; }
+.slidebar li a span {opacity:0;display:block; color:#fff; font-size:12px;line-height:20px; text-align:center; transition: all 0.1s linear 0s;}
+.slidebar li.active a { width:40px; text-align:center; height:20px; line-height:20px; border-radius:10px; margin:5px 0 0 20px;transition-delay:0s; }
+.slidebar li.active a span {opacity:1;transition-delay:0.15s;}
+
+.section.active { opacity:1;z-index:10;transform: scale(1);}
+
+.clobg {
+	width:100%; height:100%; position:absolute;
+    transition: all 0.5s ease;
+    transition-property: all;
+    transform-origin:center bottom;
+    background:url(http://ww2.sinaimg.cn/large/6c8c820dgw1ezaiz10mtmj21hc0s3ag6.jpg) center top no-repeat;
+	overflow:hidden;
+}
+
+.clobg div {width:100%; height:100%; background-image:linear-gradient(45deg,rgba(71,109,234,1),rgba(16,207,142,1) 60%,rgba(16,207,142,1));opacity:0.8}
+
+.section.s1 .clobg {top:-50%;left:0; margin-top:-150px;transform: skewY(-5deg) translate(0,-50%) translateZ(0);}
+.section.s1.active .clobg{transform: skewY(-5deg) translate(0,0) translateZ(0);transition-delay:0.5s;animation:clobg-anim-s1 25s linear 1s infinite;}
+
+.section.s2 .clobg {top:75%;left:0;transform:skewY(10deg) translate(0,50%) translateZ(0);transform-origin:center top;background-position:center bottom}
+.section.s2 .clobg div { background-image:linear-gradient(45deg,rgba(71,109,234,1) 30%,rgba(16,207,142,1))}
+.section.s2.active .clobg{opacity:0.95;transform:skewY(10deg) translate(0,0) translateZ(0);transition-delay:1.8s;}
+
+.section.s3 .clobg {top:0;left:130%;transform:skewX(-25deg) translateZ(0);transform-origin:left center;background-position:center bottom}
+.section.s3 .clobg div { background-image:linear-gradient(45deg,rgba(71,109,234,1) 10%,rgba(16,207,142,1) 50%)}
+.section.s3.active .clobg{top:0;left:50%;transition-delay:1s;}
+
+
+.section.s4 .clobg {top:100%;left:0;}
+.section.s4 .clobg div { background-image:linear-gradient(45deg,rgba(71,109,234,1) 20%,rgba(16,207,142,1))}
+.section.s4.active .clobg{top:0;transition-delay:.5s}
+
+@-webkit-keyframes clobg-anim-s1 {
+	0%{transform: skewY(-5deg) translateZ(0)}
+	50%{transform: skewY(5deg) translateZ(0)}
+	100%{transform: skewY(-5deg) translateZ(0)}
+}
+@-moz-keyframes clobg-anim-s1 {
+	0%{transform: skewY(-5deg) translateZ(0)}
+	50%{transform: skewY(5deg) translateZ(0)}
+	100%{transform: skewY(-5deg) translateZ(0)}
+}
+@-webkit-keyframes fadeInFromNone {
+    0% {opacity: 0;top:50px;}
+    100% {opacity: 1;top:75px;}
+}
+@-moz-keyframes fadeInFromNone {
+    0% {opacity: 0;top:50px;}
+    100% {opacity: 1;top:75px;}
+}
+
+@-webkit-keyframes fadeInFromNone2 {
+	0% {opacity:0;top:-100px;}
+	30% {opacity:1;top:-100px;}
+	40% {opacity:1;top:-80px;}
+	50% {opacity:1;top:-100px;}
+	60% {opacity:1;top:-80px;}
+	70% {opacity:1;top:-100px;}
+	100% {opacity:0;top:-100px;}
+}
+@-moz-keyframes fadeInFromNone2 {
+	0% {opacity:0;top:-100px;}
+	30% {opacity:1;top:-100px;}
+	40% {opacity:1;top:-80px;}
+	50% {opacity:1;top:-100px;}
+	60% {opacity:1;top:-80px;}
+	70% {opacity:1;top:-100px;}
+	100% {opacity:0;top:-100px;}
+}
+
+#con1 { width:100%; height:490px; position:absolute;left:0;top:50%;margin-top:-250px; text-align:center;}
+#con1 h1,#con1 h5,#con1 p,#con1 #tags {
+    opacity: 0;
+    transform: translate(0,80px);
+    transition: all 1s cubic-bezier(.41,1,.68,1);
+    transition-property: all;
+}
+#con1 p { line-height:28px; font-size:15px; margin:0;padding:0;position:static;}
+#con1 #tags { margin-top:20px; }
+#con1 #userpic { width:180px; height:180px; border-radius:91px; margin:0 auto 30px auto;border:1px solid rgba(47,170,185,0.2);
+	background:#fff url(http://ww2.sinaimg.cn/large/6c8c820dgw1ezaiz5avwfj2050050q30.jpg) top left no-repeat;
+	background-size: cover;
+	box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transform:perspective(800px) rotateY(-90deg) translate(0,-80px) scale(2.5);
+    transition: all 0.6s cubic-bezier(.41,1,.68,1);
+    transition-property: all;
+}
+#con1 #tags b { padding:4px 8px; line-height:16px; background:#fff; color:#f1a400; border:1px solid #f1a400; border-radius:13px;font-size:12px}
+
+.section.active #con1 h1, .section.active #con1 h5, .section.active #con1 p, .section.active #con1 #tags { opacity:1; transform:translate3d(0,0,0);}
+.section.active #con1 h1 { transition-delay:1.2s }
+.section.active #con1 h5 { transition-delay:1.2s }
+.section.active #con1 p { transition-delay:1.4s }
+.section.active #con1 #tags { transition-delay:1.6s }
+.section.active #con1 #userpic { transition-delay:0.8s; opacity:1; transform:perspective(800px) rotateY(0) translate(0) scale(1); }
+
+#con2 { width:960px; height:auto; position:absolute;left:50%;top:50%;bottom:-100px;margin-left:-480px;transition: all 0.5s ease;opacity:0;overflow:visible;}
+#con2 .sk {display:block; float:left; position:relative; width:2px; margin:0 79px; height:100%; overflow:visible;background:#ccc; }
+#con2 .sk .kedu { display:block; width:35px; height:100%; position:absolute; left:10px; top:0; background:url(kedu.png) repeat-y; opacity:0.6; }
+#con2 .sk a { display:block; width:100%; position:absolute; left:0; bottom:0; height:50px; overflow:visible; transition: all 1s ease; background:#f1a400; }
+#con2 .sk a .skill {
+	cursor:pointer; display:block; width:100px; height:100px; border-radius:51px; position:absolute; left:0; top:0; margin-top:-51px; margin-left:-50px;
+	background-image:linear-gradient(-45deg,rgba(0,0,0,0.04) 50%,rgba(0,0,0,0) 50%);
+	color:#fff; text-align:center;font-size:25px;font-weight:bold;line-height:100px;
+	box-shadow:0 3px 10px rgba(0,0,0,0.2);border:1px solid #fff;text-shadow:1px 1px 1px rgba(0,0,0,0.1);
+	font-family:Verdana,Tahoma,arial,sans-serif;transition: all .2s ease;transform:scale(0)
+}
+#con2 .sk a .desc {width:200px;padding:10px 20px;border-radius:4px;position:absolute;top:50px;left:-120px;background:rgba(0,0,0,0.9);z-index:15;color:#aaa;box-shadow:0 10px 20px rgba(0,0,0,0.3);display:none;opacity:0}
+#con2 .sk a .desc ul {margin-left:10px;}
+#con2 .sk a .desc li {line-height:18px;font-size:13px;margin:14px 0;list-style:disc}
+#con2 .sk a .desc em {position:absolute;top:-20px;left:50%;margin-left:-9px; border-width:10px;border-style:solid;border-color:rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0.9) rgba(0,0,0,0);}
+#con2 .sk a:hover .desc {display:block; animation:fadeInFromNone .2s ease .01s forwards;}
+#con2 .sk#sk1 a .skill {background-color:#e86825; }
+#con2 .sk#sk2 a .skill {background-color:#f1a400; }
+#con2 .sk#sk3 a .skill {background-color:#11acf4; }
+#con2 .sk#sk4 a .skill {background-color:#5a68a5; }
+#con2 .sk#sk5 a .skill {background-color:#1caa6e; }
+#con2 .sk#sk6 a .skill {background-color:#6161d2; }
+#con2 .sk a #pointer { opacity:0;color:#e86825;position:absolute;top:-20px;left:-44px;width:90px;line-height:50px;text-align:center;font-size:50px;}
+
+.section.active #con2 {top:2%; bottom:2%; opacity:1; transition-delay:.5s}
+.section.active #con2 .sk#sk1 a {height:78%; transition-delay:1.1s; }
+.section.active #con2 .sk#sk2 a {height:80%; transition-delay:1.15s; }
+.section.active #con2 .sk#sk3 a {height:72%; transition-delay:1.2s; }
+.section.active #con2 .sk#sk4 a {height:75%; transition-delay:1.25s; }
+.section.active #con2 .sk#sk5 a {height:60%; transition-delay:1.3s; }
+.section.active #con2 .sk#sk6 a {height:65%; transition-delay:1.35s; }
+
+.section.active #con2 .sk a .skill{transform:scale(1)}
+.section.active #con2 .sk#sk1 a:hover .skill,
+.section.active #con2 .sk#sk2 a:hover .skill,
+.section.active #con2 .sk#sk3 a:hover .skill,
+.section.active #con2 .sk#sk4 a:hover .skill,
+.section.active #con2 .sk#sk5 a:hover .skill,
+.section.active #con2 .sk#sk6 a:hover .skill {transform:scale(1.3);background-color:#fff;color:#111;border-color:#ccc}
+.section.active #con2 .sk a #pointer {animation:fadeInFromNone2 2.4s linear 3s;}
+
+.t_skill { position:absolute;transition:all .5s ease;}
+.t_skill h1 { color:#fff; margin-bottom:5px; }
+.t_skill p { color:#fff; opacity:0.6; line-height:30px;font-size:16px;}
+.t_skill.t1 {width:800px;top:75%;left:50%;margin-left:-400px;opacity:0;transform:translateY(40px)}
+.t_skill.t2 {top:50%;left:50%;margin:-250px 0 0 -480px;transform:translateY(-100%);opacity:0}
+.t_skill.t2  h1 {color:#111}
+.t_skill.t2  h1 span{color:#2faab9;}
+.section.active .t_skill.t1 {opacity:1;transform:translateY(0);transition-delay:2.2s}
+.section.active .t_skill.t2 {opacity:1;transform:translateY(0);transition-delay:1s}
+
+
+#con3 { width:480px; height:460px; position:absolute;left:50%;top:50%;margin:-230px 0 0 0;transition: all 0.5s ease;opacity:0;overflow:visible;}
+#con3 #ctrl { position:absolute;left:0;bottom:40px;overflow:visible}
+#con3 #ctrl .main {position:relative;float:left;width:252px;height:49px;overflow:hidden;}
+#con3 #ctrl .main .content { position:absolute;left:0;top:0;}
+#con3 #ctrl .main .content .item {display:block;float:left;width:84px;opacity:0.25;cursor:pointer;overflow:hidden}
+#con3 #ctrl .main .content .item img { display:block;float:left;width:80px;margin:2px}
+#con3 #ctrl .main .content .item.active {opacity:1;}
+#con3 #ctrl .main .content .item.active img {border:2px solid yellow;margin:0;}
+#con3 #ctrl .arr {display:block;float:left;width:25px;height:45px;margin:2px;text-align:center;line-height:45px;font-size:20px;color:#fff;background:#000;opacity:0.3;transition:opacity .2s ease;}
+#con3 #ctrl .arr:hover {opacity:0.8}
+#con3 #ctrl #indexTag {position:absolute;top:0;left:-55px;color:#fff;font-size:18px;line-height:50px;}
+.section.active #con3 {opacity:1; transition-delay:1.5s}
+
+.con3main {width:600px;height:460px;position:absolute;top:100%;left:50%;margin:0 0 0 -480px;transition:all .5s ease;overflow:hidden;}
+.con3main .content {height:100%;position:absolute;top:0;left:0;overflow:hidden;}
+.con3main .content .item {float:left;padding-right:60px;}
+.con3main .content .item .mac {width:600px;height:460px;background:url(mac.png) left top no-repeat;overflow:hidden;}
+.con3main .content .item .screen {position:relative;width:553px;height:311px;overflow:hidden;margin:23px;}
+.con3main .content .item .screen img {display:block;float:left;width:553px;margin:0;transition:all .5s ease}
+.con3main .content .item .screen .view { display:none;position:absolute;top:0;right:0;width:100%;height:100%;}
+.con3main .content .item .screen:hover .view { display:block;}
+.con3main .content .item .screen:hover .view a { display:block;width:100px;height:100px;margin:105px auto 0 auto;line-height:100px;text-align:center;color:rgba(16,207,142,1);border-radius:51px;border:1px solid rgba(16,207,142,1);transition: all 0.2s ease;}
+.con3main .content .item .screen:hover .view a:hover {background:rgba(16,207,142,1);color:#111;}
+.con3main .content .item .screen:hover img { opacity:0.1;transform:scale(1.2)}
+.con3main .content .item .screen:hover .view {display:block;}
+.section.active .con3main {top:50%;margin:-180px 0 0 -480px;transition-delay:.5s;}
+
+.con3info { width:370px;height:100%;position:relative;float:right;margin-top:90px;overflow:hidden;}
+.con3info .content {height:100%;position:absolute;top:0;left:0;overflow:hidden;}
+.con3info .content .item {width:370px;float:left;height:100%;overflow:hidden;}
+.con3info .content .item h2 {color:#fff; margin-bottom:20px;font-size:24px;}
+.con3info .content .item p { opacity:0.6; color:#fff; line-height:26px;font-size:14px;}
+
+#con4 { width:800px; height:200px; position:absolute;left:50%;top:50%;margin-top:-100px;margin-left:-400px;}
+#con4 #line { width:2px; height:0; position:absolute; left:50%;top:50%; margin:0 0 0 -1px; background:#fff; border-radius:1px; transition: all 0.5s ease;}
+#con4 #left,#con4 #right{ width:50%;height:100%;overflow:hidden;float:left}
+#con4 #right{ float:right}
+#con4 .icon  { width:200px;height:200px;border-radius:100px;background:#fff;transition: all .5s ease;overflow:hidden;}
+#con4 #left .icon { float:right;margin-right:-200px;}
+#con4 #right .icon { float:left;margin-left:-200px;}
+#con4 .icon img {display:block;margin:0;}
+
+.section.active #con4 #line { height:300px; margin:-150px 0 0 -1px; transition-delay:1s}
+.section.active #con4 #left .icon { margin-right:100px; transition-delay:1.5s}
+.section.active #con4 #right .icon { margin-left:100px; transition-delay:1.5s}
+
+#swiper {z-index:30;text-align:center;}
+#swiper .swiper-wrapper {position:relative;height:100%;vertical-align:center;overflow:auto;display:none;}
+#swiper .swiper-wrapper:before {content:'';display:inline-block;height:100%;vertical-align:middle;}
+#swiper .swiper-wrapper.active {display:block;text-align:center;}
+#swiper .swiper-wrapper .item {display:none;max-width:85%;vertical-align:middle;}
+#swiper .swiper-wrapper .item.active {display:inline-block;}
+#swiper .swiper-wrapper .item img {width:100%}
+#swiper,#swiper .swiper-bg { position:absolute;width:100%;height:100%;}
+#swiper .swiper-bg {opacity:0.9;background:#000;}
+#swiper .arr {display:block;position:absolute;top:50%;width:16px;height:32px;padding:30px 20px;margin-top:-36px;opacity:0.5;background:#000;transition:all .2s ease}
+#swiper .arr span {display:block;height:100%;background:url(close.png) center center no-repeat;}
+#swiper .arr.prev {left:18px}
+#swiper .arr.next {right:18px}
+#swiper .arr.prev span {background-position:right center}
+#swiper .arr.next span {background-position:left center}
+#swiper .arr:hover {opacity:1}
+#swiper .swiper-index{ display:block;position:absolute;bottom:30px;right:30px;color:#fff;font-size:20px;text-shadow:1px 1px 0 rgba(0,0,0,0.5)}
+#swiper .swiper-index span:first-child {color:rgba(16,207,142,1);font-size:30px}
+#swiper .swiper-close {display:block;width:60px;height:60px;position:absolute;top:0;right:18px;background:#000 url(close.png) center center no-repeat;opacity:0.5;transition:all .2s ease}
+#swiper .swiper-close:hover {opacity:1}
+#swiper .swiper-progress {width:65px;height:10px;position:absolute;top:50%;left:50%;margin:-5px 0 0 -32px;background:url(img_loading.gif) center center no-repeat}
+.swiper-progress
+</style>
+	
+	</head>
+	<body>
+		<!-- 第一页 -->
+		<div class="section s1">
+			<div class="clobg"><div></div></div>
+			<div id="con1">
+				<div id="userpic"></div>
+				<h1>浏览各地飞太容易</h1>
+				<h5>个人哦恩个人个人股票挺热闹过让他拿譬如混凝土烹饪朋友他人品</h5>
+				<p>一弹一弹人与人</p>
+				<p>规范和规范化股份</p>
+				<p>以u影韩国韩华你</p>
+				<p>我有一条鱼一天</p>
+				<div id="tags"><b><span class="check">✔</span> ABB</b>&nbsp;&nbsp;<b><span class="check">✔</span> PS</b>&nbsp;&nbsp;<b><span class="check">✔</span> DBV</b>&nbsp;&nbsp;<b><span class="check">✔</span> VPS</b>&nbsp;&nbsp;<b><span class="check">✔</span> ESC</b>&nbsp;&nbsp;<b><span class="check">✔</span> ABS</b></div>
+			</div>
+		</div>
+		<!-- 第二页 -->
+		<div class="section s2">
+			<div id="con2">
+				<div class="sk" id="sk1">
+					<span class="kedu"></span>
+					<a href="#">
+						<span class="skill">TKML</span>
+						<div class="desc">
+							<em></em>
+							<ul>
+								<li>能使用合适的结构编写兼容主流浏览器的页面布局；</li>
+								<li>了解HTML 5新标签的语义</li>
+								<li>能适当运用CSS 3使页面在现代浏览器上效果更佳</li>
+								<li>能熟练使用Chrome开发者工具、FireBug等工具辅助开发</li>
+								<li>有移动端页面开发经验</li>
+							</ul>
+						</div>
+						<div id="pointer">︾</div>
+					</a>
+				</div>
+				<div class="sk" id="sk2">
+					<span class="kedu"></span>
+					<a href="#">
+						<span class="skill">ECC</span>
+						<div class="desc">
+							<em></em>
+							<ul>
+								<li>熟练运用CSS及CSS3新属性</li>
+								<li>注重浏览器兼容性，熟悉常见的CSS hack（兼容至IE7）</li>
+								<li>掌握bootstrap框架及源码的实现</li>
+								<li>掌握CSS预编译器Less及Sass</li>
+							</ul>
+						</div>
+					</a>
+				</div>
+				<div class="sk" id="sk3">
+					<span class="kedu"></span>
+					<a href="#">
+						<span class="skill">HOLD</span>
+						<div class="desc">
+							<em></em>
+							<ul>
+								<li>精通原生Javascript，能脱离jQuery等类库编码</li>
+								<li>能运用模块化、面向对象的方式编程</li>
+								<li>熟悉正则表达式的使用</li>
+								<li>编写过功能全面的Javascript基础类库</li>
+							</ul>
+						</div>
+					</a>
+				</div>
+				<div class="sk" id="sk4">
+					<span class="kedu"></span>
+					<a href="#">
+						<span class="skill">ESC</span>
+						<div class="desc">
+							<em></em>
+							<ul>
+								<li>熟练掌握PHP面向对象开发技术</li>
+								<li>熟练掌握THINKPHP,zend,Yii,框架</li>
+								<li>熟练掌握SMARTY的模板引擎，熟练运用AJAX技术</li>
+								<li>熟悉网站静态化和缓存技术</li>
+							</ul>
+						</div>
+					</a>
+				</div>
+				<div class="sk" id="sk5">
+					<span class="kedu"></span>
+					<a href="#">
+						<span class="skill">FAQ</span>
+						<div class="desc">
+							<em></em>
+							<ul>
+								<li>能熟练设计CMS、Blog等常见Web应用的数据库</li>
+								<li>熟悉ORACLE、MySQL的使用</li>
+								<li>熟练掌握 MYSQL设计与优化；以及存储过程、外键、触发器、事务回滚等高级对象</li>
+							</ul>
+						</div>
+					</a>
+				</div>
+				<div class="sk" id="sk6">
+					<span class="kedu"></span>
+					<a href="#">
+						<span class="skill">PSD</span>
+						<div class="desc">
+							<em></em>
+							<ul>
+								<li>能进行简单的图片处理和平面设计</li>
+								<li>能制作动画GIF</li>
+								<li>能根据图片特征存成最优的格式</li>
+							</ul>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="clobg"><div></div></div>
+			<div class="t_skill t1">
+				<h1>均衡器</h1>
+				<p>将鼠标悬停圆饼区可查看相应说明</p>
+			</div>
+		</div>
+		<!-- 第三页 -->
+		<div class="section s3" id="mywork">
+			<div class="con3main">
+				<div class="content">
+					<div class="item"><div class="mac"><div class="screen"><img src="d1.jpg" /><div class="view"><a href="javascript:;" class="pic-swiper" swiper-id="sw1">查看图集</a></div></div></div></div>
+					<div class="item"><div class="mac"><div class="screen"><img src="d1.jpg" /><div class="view"><a href="javascript:;" class="pic-swiper" swiper-id="sw2">查看图集</a></div></div></div></div>
+					<div class="item"><div class="mac"><div class="screen"><img src="d1.jpg" /><div class="view"><a href="javascript:;" class="pic-swiper" swiper-id="sw3">查看图集</a></div></div></div></div>
+					<div class="item"><div class="mac"><div class="screen"><img src="d1.jpg" /><div class="view"><a href="javascript:;" class="pic-swiper" swiper-id="sw4">查看图集</a></div></div></div></div>
+				</div>
+			</div>
+			<div class="clobg"><div></div></div>
+			<div id="con3">
+				<div class="con3info">
+					<div class="content">
+						<div class="item">
+							<h2>花旗银行香港分行</h2>
+							<p>退热贴容易惹他容易</p>
+							<p>投入也欢迎您体内液体</p>
+							<p>反对萨芬的萨过分的是</p>
+							<p>一条具有特殊的</p>
+						</div>
+						<div class="item">
+							<h2>花旗银行香港分行</h2>
+							<p>退热贴容易惹他容易</p>
+							<p>投入也欢迎您体内液体</p>
+							<p>反对萨芬的萨过分的是</p>
+							<p>一条具有特殊的</p>
+						</div>
+						<div class="item">
+							<h2>花旗银行香港分行</h2>
+							<p>退热贴容易惹他容易</p>
+							<p>投入也欢迎您体内液体</p>
+							<p>反对萨芬的萨过分的是</p>
+							<p>一条具有特殊的</p>
+						</div>
+						<div class="item">
+							<h2>花旗银行香港分行</h2>
+							<p>退热贴容易惹他容易</p>
+							<p>投入也欢迎您体内液体</p>
+							<p>反对萨芬的萨过分的是</p>
+							<p>一条具有特殊的</p>
+						</div>
+					</div>
+				</div>
+				<div id="ctrl">
+					<a href="javascript:;" class="arr left" title="上一个"><</a>
+					<div class="main">
+						<div class="content">
+							<div class="item"><img src="d1.jpg" /></div>
+							<div class="item"><img src="d1.jpg" /></div>
+							<div class="item"><img src="d1.jpg" /></div>
+							<div class="item"><img src="d1.jpg" /></div>
+						</div>
+					</div>
+					<a href="javascript:;" class="arr right" title="下一个">></a>
+					<div id="indexTag"><span id="current"></span> / <span id="total"></span></div>
+				</div>
+			</div>
+			<div class="t_skill t2">
+				<h1><span>┃</span>样品展示</h1>
+			</div>
+		</div>
+		<!-- 第四页 -->
+		<div class="section s4">
+			<div class="clobg"><div></div></div>
+			<div id="con4">
+				<div id="right"><div class="icon"><img src="qq.jpg" /></div></div>
+				<div id="left"><div class="icon"><img src="wechat.jpg" /></div></div>
+			</div>
+		</div>
+		<!-- 右侧导航 -->
+		<ul class="slidebar">
+			<li><a href="javascript:;"><span>欢迎</span></a></li>
+			<li><a href="javascript:;"><span>特点</span></a></li>
+			<li><a href="javascript:;"><span>浏览</span></a></li>
+			<li><a href="javascript:;"><span>联系</span></a></li>
+		</ul>
+		<div id="swiper" style="display:none">
+			<div class="swiper-bg"></div>
+			<div class="swiper-progress"></div>
+	        <div class="swiper-wrapper" id="sw1">
+	            <div class="item">
+	                <img data-src="http://car1.autoimg.cn/upload/2014/11/19/u_2014111913510211426411.jpg">
+	            </div>
+	            <div class="item">
+	                <img data-src="http://car0.autoimg.cn/upload/2014/11/19/u_2014111913510071126410.jpg">
+	            </div>
+	            <div class="item">
+	                <img data-src="http://car1.autoimg.cn/upload/2014/11/19/u_2014111913505837026411.jpg">
+	            </div>
+	            <div class="item">
+	                <img data-src="http://car1.autoimg.cn/upload/2014/11/19/u_2014111913505704526410.jpg">
+	            </div>
+	         </div>
+	        <div class="swiper-wrapper" id="sw2">
+	            <div class="item">
+	                <img data-src="http://ww4.sinaimg.cn/large/6c8c820dgw1ezfpeyrshxj212w20wgx3.jpg">
+	            </div>
+	            <div class="item">
+	                <img data-src="http://ww2.sinaimg.cn/large/6c8c820dgw1ezfpeigq09j20xc1zrk9n.jpg">
+	            </div>
+	         </div>
+	        <div class="swiper-wrapper" id="sw3">
+	            <div class="item">
+	                <img data-src="http://car1.autoimg.cn/upload/2014/11/19/u_2014111913503141326410.jpg">
+	            </div>
+	            <div class="item">
+	                <img data-src="http://car0.autoimg.cn/upload/2014/11/19/u_2014111913502592026411.jpg">
+	            </div>
+	            <div class="item">
+	                <img data-src="http://car1.autoimg.cn/upload/2014/11/19/u_2014111913501216026411.jpg">
+	            </div>
+	            <div class="item">
+	                <img data-src="http://car0.autoimg.cn/upload/2014/11/19/u_2014111913500702726411.jpg">
+	            </div>
+	            <div class="item">
+	                <img data-src="http://car0.autoimg.cn/upload/2014/11/19/u_2014111913495854226410.jpg">
+	            </div>
+	         </div>
+	        <div class="swiper-wrapper" id="sw4">
+	            <div class="item">
+	                <img data-src="http://car0.autoimg.cn/upload/2014/11/19/u_2014111913495216126410.jpg">
+	            </div>
+	            <div class="item">
+	                <img data-src="http://car0.autoimg.cn/upload/2014/11/19/u_2014111913494676426410.jpg">
+	            </div>
+		    </div>
+		    <div class="swiper-index"><span>0</span> / <span>0</span></div>
+		    <a href="javascript:;" class="arr prev" title="上一张"><span></span></a>
+		    <a href="javascript:;" class="arr next" title="下一张"><span></span></a>
+		    <a href="javascript:;" class="swiper-close" title="关闭"></a>
+		</div>
+		<script>
+		(function($){
+			$.fn.extend({
+				'PicSlider':function(option){
+					var op = $.extend({
+						slider:'.slider',
+						content:'.content',
+						ctrl:'#ctrl',
+						indexTag:'#indexTag',
+						time:500
+					},option);
+					return this.each(function(){
+						var $this = $(this);
+						var slider = $this.find(op.slider);
+						var ctrl = $this.find(op.ctrl);
+						var indexTag = $this.find(op.indexTag);
+						
+						function init(){
+							$this.find(op.slider+','+op.ctrl).each(function(){
+								var con = $(this).find(op.content).eq(0);
+								var width = con.find('.item:first').outerWidth()*con.find('.item').length;
+								con.css({'left':0,'width':width+'px'}).find('.item').removeClass('active').eq(0).addClass('active');
+							});
+							indexTag.find('#total').html($this.find(op.slider).eq(0).find('.item').length);
+							indexTag.find('#current').html('1');
+						}
+						function goto_step(index)
+						{
+							$this.find(op.slider).each(function(){
+								var con  = $(this).find(op.content).eq(0);
+								var width = con.find('.item:first').outerWidth();
+								var value = width*index;
+								var left = '-'+value+'px';
+								con.find('.item').removeClass('active').eq(index).addClass('active');
+								con.stop().animate({'left':left},op.time);
+							});
+							$this.find(op.ctrl).each(function(){
+								var con  = $(this).find(op.content).eq(0);
+								var pf = Math.abs(con.position().left);
+								var width = con.find('.item:first').outerWidth();
+								var outWidth = con.parent().width();
+								if(index<con.find('.item.active').index() && pf>width*index){
+									var left = '-'+width*index+'px';
+									con.stop().animate({'left':left},op.time);
+								}
+								if(index>con.find('.item.active').index() && width*index>=parseInt(pf)+parseInt(outWidth)){
+									var left = '-'+(width*(index+1) - outWidth)+'px';
+									con.stop().animate({'left':left},op.time);
+								}
+								con.find('.item').removeClass('active').eq(index).addClass('active');
+							});
+							indexTag.find('#current').html(index+1);
+						}
+						init();
+						ctrl.find('.arr,'+op.content+' .item').each(function(){
+							var $this = $(this);
+							var con = ctrl.find(op.content).eq(0);
+							var items = ctrl.find(op.content).eq(0).find('.item');
+							
+							$this.on('click',function(){
+								if($this.hasClass('item')){
+									goto_step($this.index())
+								}
+								else{
+									if($this.hasClass('right'))
+									{
+							        	var num = con.find('.item.active').index()<items.length-1? con.find('.item.active').next().index() : 0;
+							        	goto_step(num);
+							        } else {
+							        	var num =  con.find('.item.active').index()>0?  con.find('.item.active').prev().index() : items.length-1;
+							        	goto_step(num);
+							        }
+								}
+							});
+						});
+					});
+				}
+			});
+		})(jQuery)
+		</script>
+		<script>
+		(function($){
+			$.fn.extend({
+				'PicSwiper':function(option){
+					var op = $.extend({
+						bg:'.swiper-progress',
+						swiper:'.swiper-wrapper',
+						ctrl:'.arr',
+						indexTag:'.swiper-index',
+						close:'.swiper-close',
+						pick:'.pic-swiper'
+					},option);
+					return this.each(function(){
+						var box = $(this);
+						var swiper = box.find(op.swiper);
+						var ctrl = box.find(op.ctrl);
+						var indexTag = box.find(op.indexTag);
+						var close = box.find(op.close);
+						var pick = $(op.pick);
+						
+						function goto_step(index)
+						{
+							var con = box.find(op.swiper+'.active:first');
+							var img = con.find('.item').removeClass('active').eq(index).addClass('active').find('img:first');
+							if(!img.attr('src'))
+								img.attr('src',img.attr('data-src'));
+							indexTag.find('span:first').html(index+1);
+							indexTag.find('span:last').html(con.find('.item').length);
+							$(con).scrollTop(0);
+						}
+						ctrl.each(function(){
+							var $this = $(this);
+							$this.on('click',function(){
+								var con = box.find(op.swiper+'.active:first');
+								var items = con.find('.item');
+								if($this.hasClass('next')){
+						        	var num = con.find('.item.active').index()<items.length-1? con.find('.item.active').next().index() : 0;
+						        	goto_step(num);
+						        } else {
+						        	var num =  con.find('.item.active').index()>0?  con.find('.item.active').prev().index() : items.length-1;
+						        	goto_step(num);
+						        }
+							});
+						});
+						pick.each(function(){
+							var $this = $(this);
+							$this.on('click',function(){
+								swiper.removeClass('active').find('.item').removeClass('active');
+								box.fadeIn(300,function(){
+									box.find(op.swiper+'#'+$this.attr('swiper-id')).addClass('active');
+									goto_step(0);
+								});
+							});
+						});
+						close.on('click',function(){
+							box.hide();
+							swiper.removeClass('active').find('.item').removeClass('active');
+						});
+					});
+				}
+			});
+		})(jQuery)
+		</script>
+		<script>
+		$(function(){
+		 	var $window = $(window);
+		    var lastAnimation = 0;
+		    
+		    function init_scroll(event, delta) {
+		        deltaOfInterest = delta;
+		        var timeNow = new Date().getTime();
+		        if(timeNow - lastAnimation < 600) {
+		            event.preventDefault();
+		            return;
+		        }
+		        if (deltaOfInterest < 0) {
+		        	var num = $('.section.active').index()<$('.section').length-1? $('.section.active').next().index() : 0;
+		        	goto_step(num);
+		        } else {
+		        	var num = $('.section.active').index()>0? $('.section.active').prev().index() : $('.section').length-1;
+		        	goto_step(num);
+		        }
+		        lastAnimation = timeNow;
+		    }
+		    
+		    function goto_step(index) {
+		    	$('.section').removeClass('active').eq(index).addClass('active');
+		    	$('.slidebar li').removeClass('active').eq(index).addClass('active');
+		    }
+		    
+		    $('.section').bind('mousewheel DOMMouseScroll',function (event) {
+		    	var delta = event.originalEvent.wheelDelta || -event.originalEvent.detail;
+		    	init_scroll(event, delta);
+		    });
+		    
+		    $('.slidebar li a').click(function(){
+		        var timeNow = new Date().getTime();
+		        if(timeNow - lastAnimation < 600) {
+		            event.preventDefault();
+		            return;
+		        }
+		    	goto_step($(this).parent().index());
+		    	lastAnimation = timeNow;
+		    });
+		    
+		    $('.section:first, .slidebar li:first').addClass('active');
+		    
+		    $('#mywork').PicSlider({slider:'.con3main,.con3info'});
+		    $('#swiper').PicSwiper();
+		})
+		</script>
+	</body>
+</html>
