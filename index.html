@@ -3,8 +3,8 @@
 	<head>
 	<title>INTRO</title>
 	<meta charset="UTF-8">
-	<meta name="keywords" content="他认为,用太热用太热,ytyr">
-	<meta name="description" content="用太热用太热">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
 	<script type="text/javascript" src="http://www2.res.meizu.com/zh_cn/bower_components/jquery/dist/jquery.min.js"></script>
 <style>
 @font-face{font-family:SYHT;src:url(http://www2.res.meizu.com/zh_cn/fonts/SHSCN-ELight.eot?v=150608);src:local('☺'),url(http://www2.res.meizu.com/zh_cn/fonts/SHSCN-ELight.woff?v=150608) format('woff'),url(http://www2.res.meizu.com/zh_cn/fonts/SHSCN-ELight.ttf?v=150608) format('truetype'),url(http://www2.res.meizu.com/zh_cn/fonts/SHSCN-ELight.svg?v=150608) format('svg');font-weight:400;font-style:normal}
@@ -193,7 +193,7 @@ h5 {font-size:14px;color:#aaa;font-weight:normal;margin:10px auto 20px auto;}
 .con3main {width:600px;height:460px;position:absolute;top:100%;left:50%;margin:0 0 0 -480px;transition:all .5s ease;overflow:hidden;}
 .con3main .content {height:100%;position:absolute;top:0;left:0;overflow:hidden;}
 .con3main .content .item {float:left;padding-right:60px;}
-.con3main .content .item .mac {width:600px;height:460px;background:url(mac.png) left top no-repeat;overflow:hidden;}
+.con3main .content .item .mac {width:600px;height:460px;background:url(http://ww3.sinaimg.cn/large/6c8c820dgw1f185f5jtc2j20go0cvq3i.jpg) left top no-repeat;overflow:hidden;}
 .con3main .content .item .screen {position:relative;width:553px;height:311px;overflow:hidden;margin:23px;}
 .con3main .content .item .screen img {display:block;float:left;width:553px;margin:0;transition:all .5s ease}
 .con3main .content .item .screen .view { display:none;position:absolute;top:0;right:0;width:100%;height:100%;}
@@ -210,18 +210,12 @@ h5 {font-size:14px;color:#aaa;font-weight:normal;margin:10px auto 20px auto;}
 .con3info .content .item h2 {color:#fff; margin-bottom:20px;font-size:24px;}
 .con3info .content .item p { opacity:0.6; color:#fff; line-height:26px;font-size:14px;}
 
-#con4 { width:800px; height:200px; position:absolute;left:50%;top:50%;margin-top:-100px;margin-left:-400px;}
-#con4 #line { width:2px; height:0; position:absolute; left:50%;top:50%; margin:0 0 0 -1px; background:#fff; border-radius:1px; transition: all 0.5s ease;}
-#con4 #left,#con4 #right{ width:50%;height:100%;overflow:hidden;float:left}
-#con4 #right{ float:right}
-#con4 .icon  { width:200px;height:200px;border-radius:100px;background:#fff;transition: all .5s ease;overflow:hidden;}
-#con4 #left .icon { float:right;margin-right:-200px;}
-#con4 #right .icon { float:left;margin-left:-200px;}
+#con4 { width:600px; height:200px; position:absolute;left:50%;top:50%;margin-top:-200px;margin-left:-300px;background:#fff;text-align:center;border-radius:6px;opacity:0;transition: all 0.5s ease;}
+#con4 .icon  { width:128px;height:128px;transition: all .5s ease;overflow:hidden;position:absolute;top:-64px;left:50%;margin-left:-64px;}
 #con4 .icon img {display:block;margin:0;}
+#con4 b {line-height:220px;font-size:30px;color:#333;}
 
-.section.active #con4 #line { height:300px; margin:-150px 0 0 -1px; transition-delay:1s}
-.section.active #con4 #left .icon { margin-right:100px; transition-delay:1.5s}
-.section.active #con4 #right .icon { margin-left:100px; transition-delay:1.5s}
+.section.active #con4 { margin-top:-100px;opacity:1; transition-delay:1s}
 
 #swiper {z-index:30;text-align:center;}
 #swiper .swiper-wrapper {position:relative;height:100%;vertical-align:center;overflow:auto;display:none;}
@@ -439,8 +433,8 @@ h5 {font-size:14px;color:#aaa;font-weight:normal;margin:10px auto 20px auto;}
 		<div class="section s4">
 			<div class="clobg"><div></div></div>
 			<div id="con4">
-				<div id="right"><div class="icon"><img src="qq.jpg" /></div></div>
-				<div id="left"><div class="icon"><img src="wechat.jpg" /></div></div>
+				<div class="icon"><img src="email.png" /></div>
+				<b>zhaimin_ameng@163.com</b>
 			</div>
 		</div>
 		<!-- 右侧导航 -->
